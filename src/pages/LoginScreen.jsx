@@ -13,16 +13,16 @@ export default function LoginScreen() {
 
   const auth = useAuthContext();
   
-  const { email, password, onChange } = useForm(
+  const { username, password, onChange } = useForm(
     {
-      email: '',
+      username: '',
       password: '',
     }
   );
 
   const isDisabled = () => {
 
-    if( email === '' || password === '' ){
+    if( username === '' || password === '' ){
       return true;
     } else {
       return false;
@@ -33,9 +33,9 @@ export default function LoginScreen() {
   const onSubmitHandlet = ( e ) => {
     e.preventDefault();
 
-    if(auth.login(email, password))
+    if(auth.login(username, password))
     {
-        navigate(`/home/${email}`, { replace: true });
+        navigate(`/home/${username}`, { replace: true });
     }else {
 
         setShowErrorMessage(true);
@@ -69,7 +69,7 @@ export default function LoginScreen() {
                       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                         Username
                       </label>
-                      <input value={email} onChange={({ target }) => onChange( target.value, 'email' )} 
+                      <input value={username} onChange={({ target }) => onChange( target.value, 'username' )} 
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
 
                     </div>

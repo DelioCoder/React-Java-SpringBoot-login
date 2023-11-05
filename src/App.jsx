@@ -3,6 +3,7 @@ import HomeScreen from './pages/HomeScreen';
 import LoginScreen from './pages/LoginScreen';
 import ErrorScreen from './pages/ErrorScreen';
 import TodoScreen from './pages/TodoScreen';
+import SoloTodoScreen from './pages/SoloTodoScreen';
 import AuthProvider, { useAuthContext } from './context/AuthProvider';
 
 function App() {
@@ -31,9 +32,14 @@ function App() {
                 <HomeScreen />
               </AuthenticatedRoute>
             } />
-            <Route path="/todos" element={
+            <Route path="/todo" element={
               <AuthenticatedRoute>
                 <TodoScreen />
+              </AuthenticatedRoute>
+            } />
+            <Route path="/todo/:id" element={
+              <AuthenticatedRoute>
+                <SoloTodoScreen />
               </AuthenticatedRoute>
             } />
             <Route path="*" element={<ErrorScreen />} />
