@@ -30,10 +30,10 @@ export default function LoginScreen() {
 
   }
 
-  const onSubmitHandlet = ( e ) => {
+  const onSubmitHandlet = async ( e ) => {
     e.preventDefault();
 
-    if(auth.login(username, password))
+    if(await auth.login(username, password))
     {
         navigate(`/home/${username}`, { replace: true });
     }else {
