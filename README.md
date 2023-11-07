@@ -1,8 +1,12 @@
-# React + Vite
+# Todo Appweb
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project using React w/Vite and Java w/SpringBoot with login.
 
-Currently, two official plugins are available:
+## Screenshots:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+![Captura de pantalla 2023-11-07 131310](https://github.com/DelioCoder/React-Java-SpringBoot-todoApp/assets/64493192/261126da-e4e3-43f5-8f2a-edc8f5e373b1)
+
+![Captura de pantalla 2023-11-07 131421](https://github.com/DelioCoder/React-Java-SpringBoot-todoApp/assets/64493192/dcd75a78-8be3-4cee-9988-509b2cf29ebb)
+
+![Captura de pantalla 2023-11-07 131429](https://github.com/DelioCoder/React-Java-SpringBoot-todoApp/assets/64493192/389086a5-9b52-42a7-ac0f-9e5cac8c4e7c)
