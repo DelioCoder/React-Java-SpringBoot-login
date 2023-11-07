@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { executeBasicAuthentication } from '../api/todoApiService';
+import { executeJWTAuthentication } from '../api/AuthenticationApiService';
 import { apiClient } from '../api/ApiClient';
 
 const AuthContext = createContext();
@@ -30,25 +30,61 @@ export default function AuthProvider({ children }) {
     //     }
     // }
 
+    // async function login(username, password)
+    // {
+
+    //     try {
+            
+    //         const baToken = 'Basic ' + window.btoa(username + ":" + password);
+    
+    //         const response = await executeBasicAuthentication(baToken);
+    
+    //         if(response.status ==  200)
+    //         {
+    //             setIsAuthenticated(true);
+    //             setToken(baToken);
+    //             setUsername(username);
+    //             // Setting an interceptor sayin, "Any rest API calls, add this authorization token"
+    //             apiClient.interceptors.request.use(
+    //                 (config) => {
+    //                     console.log('Intercepting and adding a token');
+    //                     config.headers.Authorization = baToken;
+    //                     return config;
+    //                 }
+    //             )
+    //             return true;
+                
+
+    //         }else {
+    //             logout();
+    //             return false;    
+    //         }
+
+    //     } catch (error) {
+    //         logout();
+    //         return false;
+    //     }
+
+    // }
+
     async function login(username, password)
     {
 
         try {
-            
-            const baToken = 'Basic ' + window.btoa(username + ":" + password);
     
-            const response = await executeBasicAuthentication(baToken);
+            const response = await executeJWTAuthentication(username, password);
     
             if(response.status ==  200)
             {
+                const jwtToken = 'Bearer ' + response.data.token;
                 setIsAuthenticated(true);
-                setToken(baToken);
+                setToken(jwtToken);
                 setUsername(username);
                 // Setting an interceptor sayin, "Any rest API calls, add this authorization token"
                 apiClient.interceptors.request.use(
                     (config) => {
                         console.log('Intercepting and adding a token');
-                        config.headers.Authorization = baToken;
+                        config.headers.Authorization = jwtToken;
                         return config;
                     }
                 )
